@@ -243,6 +243,7 @@ public class MultiReleaseJar {
         try (InputStream is = p.getErrorStream()) {
             err = new String(is.readAllBytes());
         }
+        p.waitFor();
         return new Result(cmd, p.exitValue(), out, err);
     }
 
